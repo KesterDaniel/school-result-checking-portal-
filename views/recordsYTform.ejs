@@ -1,0 +1,25 @@
+<%- include("partials/header") %>
+
+<div class="container" id="addstudform">
+    <form action="/records/YT" method="post">
+        <label for="year" class="form-label">YEAR</label>
+        <input class="form-control" id="year" type="text" name="year" placeholder="Year">
+        <label for="term" class="form-label">TERM</label>
+        <select class="form-control" id="term" name="term">
+            <option value="First Term">First Term</option>
+            <option value="Second Term">Second Term</option>
+            <option value="Third Term">Third Term</option>
+        </select>
+        <label for="class" class="form-label">CLASS</label>
+        <select class="form-control" id="class" name="class">
+            <option value="SS1">SS1</option>
+            <option value="SS2">SS2</option>
+            <option value="SS3">SS3</option>
+        </select> 
+        <button class="btn btn-dark btn-block mt-3 mb-2" style="width: 100%;">Submit</button>
+     </form>
+</div>
+ 
+
+
+<%- include("partials/footer") %>

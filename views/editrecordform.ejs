@@ -1,0 +1,28 @@
+<form action="/records/students/<%= record._id %>/update?_method=put" method="post">
+    <input type="text" name="record[firstName]" value="<%= record.firstName %>">
+    <input type="text" name="record[surName]" value="<%= record.surName %>">
+    <input type="text" name="record[middleName]" value="<%= record.middleName %>">
+    <% if(record.sex == "Male"){ %>
+        <input type="radio" name="record[sex]" value="Male" id="Male" checked>
+        <label for="Male">Male</label>
+        <input type="radio" name="record[sex]" value="Female" id="Female">
+        <label for="Female">Female</label>
+    <% } else { %>
+        <input type="radio" name="record[sex]" value="Male" id="Male">
+        <label for="Male">Male</label>
+        <input type="radio" name="record[sex]" value="Female" id="Female" checked>
+        <label for="Female">Female</label>
+    <% } %>
+    <% if(record.paid == true){ %>
+        <input type="radio" name="record[paid]" value="true" id="Paid" checked>
+        <label for="Paid">Paid</label>
+        <input type="radio" name="record[paid]" value="false" id="NotPaid">
+        <label for="NotPaid">NotPaid</label>
+    <% } else{ %>
+        <input type="radio" name="record[paid]" value="true" id="Paid">
+        <label for="Paid">Paid</label>
+        <input type="radio" name="record[paid]" value="false" id="NotPaid" checked>
+        <label for="NotPaid">NotPaid</label>
+    <% } %>
+    <button>Submit</button>
+</form>

@@ -1,0 +1,23 @@
+<%- include("partials/header") %>
+
+<div class="container mt-4" id="addstudform">
+    <h1 style="text-align: center;">ADD SCORES</h1>
+    <form action="/students/<%= student._id %>/<%= subject._id %>/addScore?_method=put" method="post">
+        <label class="form-label" for="subname">Name</label>
+        <input class="form-control" type="text" name="subject[name]" id="subname" value="<%= subject.name %>">
+    
+        <label class="form-label" for="subfirstCA">FirstCA</label>
+        <input class="form-control" type="number" name="subject[FirstCA]" id="subfirstCA" value="<%= subject.FirstCA %>"  min="0" max="15">
+    
+        <label class="form-label" for="subsecondCA">SecondCA</label>
+        <input class="form-control" type="number" name="subject[SecondCA]" id="subsecondCA" value="<%= subject.SecondCA %>" min="0" max="15">
+    
+        <label class="form-label" for="subsecondCA">Exam</label>
+        <input class="form-control" type="number" name="subject[Exam]" id="subExam" value="<%= subject.Exam %>"  min="0" max="70">
+    
+        <button class="btn btn-dark btn-block mb-2 mt-2" style="width: 100%;" type="submit">Submit</button>
+    </form>
+</div>
+
+
+<%- include("partials/footer") %>

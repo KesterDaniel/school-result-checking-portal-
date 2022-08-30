@@ -1,0 +1,52 @@
+<%- include("partials/header") %>
+
+<div class="container mt-3" id="addstudform">
+    <h1 style="text-align: center;">UPDATE STUDENT</h1>
+    <form action="/students/<%= student._id %>/update?_method=put" method="post">
+        <label class="form-label" for="firstname">FIRST NAME</label>
+        <input class="form-control" id="firstname" type="text" name="student[firstName]" value="<%= student.firstName %>">
+        <label class="form-label" for="middlename">MIDDLE NAME</label>
+        <input class="form-control" id="middlename" type="text" name="student[middleName]" value="<%= student.middleName %>">
+        <label class="form-label" for="surname">SURNAME</label>
+        <input class="form-control" id="surname" type="text" name="student[surName]" value="<%= student.surName %>">
+        <div class="mt-3">
+            <p class="mb-1">SEX:</p>
+            <% if(student.sex == "Male"){ %>
+                <input class="form-radio-input" type="radio" name="student[sex]" value="Male" id="Male" checked>
+                <label class="form-label" for="Male">Male</label>
+                <input class="form-radio-input" type="radio" name="student[sex]" value="Female" id="Female">
+                <label class="form-label" for="Female">Female</label>
+            <% } else { %>
+                <input class="form-control" type="radio" name="student[sex]" value="Male" id="Male">
+                <label class="form-label" for="Male">Male</label>
+                <input class="form-control" type="radio" name="student[sex]" value="Female" id="Female" checked>
+                <label class="form-label" for="Female">Female</label>
+            <% } %>
+        </div>
+       
+        <div class="mt-3">
+            <p class="mb-1">FEES:</p>
+            <% if(student.paid == true){ %>
+                <input class="form-radio-input" type="radio" name="student[paid]" value="true" id="Paid" checked>
+                <label class="form-label" for="Paid">Paid</label>
+                <input class="form-radio-input" type="radio" name="student[paid]" value="false" id="NotPaid">
+                <label class="form-label" for="NotPaid">NotPaid</label>
+            <% } else{ %>
+                <input class="form-control" type="radio" name="student[paid]" value="true" id="Paid">
+                <label class="form-label" for="Paid">Paid</label>
+                <input class="form-control" type="radio" name="student[paid]" value="false" id="NotPaid" checked>
+                <label class="form-label" for="NotPaid">NotPaid</label>
+            <% } %>
+        </div>
+        
+        <label class="form-label" for="Position">Position In Class</label>
+        <input class="form-control" type="number" id="Position" name="student[PositionInClass]" value="<%= student.PositionInClass %>">
+        <label class="form-label" for="absent">TimesAbsent</label>
+        <input class="form-control" type="number" id="absent" name="student[TimesAbsent]" value="<%= student.TimesAbsent %>">
+    
+        <button class="btn btn-dark btn-block mb-2 mt-3" style="width: 100%;">UPGRADE</button>
+    </form>
+</div>
+
+
+<%- include("partials/footer") %>

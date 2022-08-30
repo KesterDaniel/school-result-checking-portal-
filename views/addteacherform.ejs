@@ -1,0 +1,33 @@
+<%- include("partials/header") %>
+
+
+<div class="container mt-4" id="addstudform">
+    <h1 style="text-align: center;">ADD TEACHER</h1>
+    <form action="/addteacher" method="post">
+        <label class="form-label" for="FirstName">FIRST NAME</label>
+        <input class="form-control" id="FirstName" type="text" name="FirstName" placeholder="FirstName">
+        <label class="form-label" for="MiddleName">MIDDLE NAME</label>
+        <input class="form-control" id="MiddleName" type="text" name="MiddleName" placeholder="MiddleName">
+        <label class="form-label" for="LastName">LAST NAME</label>
+        <input class="form-control" id="LastName" type="text" name="LastName" placeholder="LastName">
+        <label class="form-label" for="class">CLASS</label>
+        <select class="form-control" id="class" name="Class">
+            <option value="JSS1">JSS1</option>
+            <option value="JSS2">JSS2</option>
+            <option value="JSS3">JSS3</option>
+            <option value="SS1">SS1</option>
+            <option value="SS2">SS2</option>
+            <option value="SS3">SS3</option>
+        </select>
+        <label class="form-label" for="password">PASSWORD</label>
+        <input class="form-control" id="password" type="text" name="password" placeholder="Password">
+        <div class="mt-2">
+            <label class="form-label" for="isAdmin">Admin</label>
+            <input class="form-radio-input" id="isAdmin" type="radio" name="isAdmin" value=true id="Isadmin">
+        </div>
+        <button class="btn btn-dark btn-block" style="width: 100%;" type="submit">Submit</button>
+    </form>
+</div>
+
+
+<%- include("partials/footer") %>

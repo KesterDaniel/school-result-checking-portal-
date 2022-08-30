@@ -1,0 +1,33 @@
+<%- include ("partials/header") %>
+
+<!-- <h1>Academic record of <%= student.name %> </h1> -->
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Subject</th>
+                <th scope="col">First CA</th>
+                <th scope="col">Second CA</th>
+                <th scope="col">Exam</th>
+                <th scope="col">Total</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% subjectsTaken.forEach((subject)=>{ %>
+                <tr>
+                    <td><%= subject.name %></td>
+                    <td><%= subject.FirstCA %></td>
+                    <td><%= subject.SecondCA %></td>
+                    <td><%= subject.Exam %></td>
+                    <td><%= subject.Total %></td>
+                    <td>
+                        <a class="btn btn-dark btn-sm" href="/records/students/<%= student._id %>/<%= subject._id %>/addScore">Update</a>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <h4>Overall Total: <%= weTotal %></h4>
+    <h4>Average Score: <%= averageTots %></h4>
+</div>

@@ -1,0 +1,15 @@
+<form action="/records/students/<%= student._id %>/<%= subject._id %>/addScore?_method=put" method="post">
+    <label for="subname">Name</label>
+    <input type="text" name="subject[name]" id="subname" value="<%= subject.name %>">
+
+    <label for="subfirstCA">FirstCA</label>
+    <input type="number" name="subject[FirstCA]" id="subfirstCA" value="<%= subject.FirstCA %>">
+
+    <label for="subsecondCA">SecondCA</label>
+    <input type="number" name="subject[SecondCA]" id="subsecondCA" value="<%= subject.SecondCA %>">
+
+    <label for="subsecondCA">Exam</label>
+    <input type="number" name="subject[Exam]" id="subExam" value="<%= subject.Exam %>">
+
+    <button type="submit">Submit</button>
+</form>

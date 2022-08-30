@@ -1,0 +1,45 @@
+<%- include("partials/header") %>
+
+<table class="table">
+    <thead>
+        <tr>
+            <!-- <th scope="col">Id</th> -->
+            <th scope="col">First Name</th>
+            <th scope="col">Middle Name</th>
+            <th scope="col">Surname</th>
+            <th scope="col">Class</th>
+            <th scope="col">Sex</th>
+            <th scope="col">Portal Id</th>
+            <th scope="col">Paid</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% allstudents.forEach((student)=>{ %>
+            <tr>
+                <!-- <th scope="row"><%= student._id %></th> -->
+                <td><%= student.firstName %></td>
+                <td><%= student.middleName %></td>
+                <td><%= student.surName %></td>
+                <td><%= student.class %></td>
+                <td><%= student.sex %></td>
+                <td><%= student.PortalId %></td>
+                <% if(student.paid == true){ %>
+                    <td>True</td>
+                <% }else{ %>
+                    <td>False</td>
+                <% } %>
+                <td>
+                    <a class="btn btn-dark btn-sm" href="/records/students/<%= student._id %>">View</a>
+                    <form style="display: inline;"  id="camp-del-form" action="/records/students/<%= student._id %>/delete?_method=delete" method="post">
+                        <button class="btn btn-dark btn-sm">Delete Student</button>
+                    </form>
+                    <a class="btn btn-dark btn-sm" href="/records/students/<%= student._id %>/update">Update</a>
+                </td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
+
+
+<%- include("partials/footer") %>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/assets/bootstrapstyle.css">
+        <link rel="stylesheet" href="/assets/style.css">
+        <title>School App</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/">MySchool</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>   
+               <div class="collapse navbar-collapse" id="navbarNavAltMarkup"> 
+                <div class="navbar-nav ms-auto">
+                    <% if(currentUser && currentUser.isAdmin){ %>
+                        <a class="nav-link" href="#">Signed in as Admin <%= currentUser.username %></a>
+                        <a class="nav-link" href="/logout">Log Out</a>
+                    <% }else if(currentUser && !currentUser.isAdmin){ %>
+                        <a class="nav-link" href="#">Signed in as <%= currentUser.username %></a>
+                        <a class="nav-link" href="/logout">Log Out</a>
+                    <% } %>             
+                </div>
+            </div>
+        </nav>
+
+        <div class="container" id="addstudform">
+            <h1 style="text-align: center;">ADD STUDENT</h1>
+            <form method="post" action="/students">
+                <label for="firstName" class="form-label">FIRST NAME</label>
+                <input class="form-control" type="text" id="firstName" required name="student[firstName]" placeholder="First Name">
+                
+                <label for="middleName" class="form-label">MIDDLE NAME</label>
+                <input class="form-control" type="text" id="middleName" required name="student[middleName]" placeholder="Middle Name">
+
+                <label for="surName" class="form-label">SURNAME</label>
+                <input class="form-control" type="text" id="surName" required name="student[surName]" placeholder="Surname">
+            
+                <div class="mt-3">
+                    <p class="mb-1">SEX:</p>
+                    <input class="form-radio-input" type="radio" name="student[sex]" value="Male" id="Male">
+                    <label class="form-label" for="Male">Male</label>
+                    <input class="form-radio-input" type="radio" name="student[sex]" value="Female" id="Female">
+                    <label class="form-label" for="Female">Female</label>
+                </div>
+               
+
+                <div class="mt-3">
+                    <div>
+                        <p class="mb-1">FEES:</p>
+                        <input class="form-check-input" type="checkbox" name="student[paid]" value="true" id="Paid">
+                        <label class="form-label" for="Paid">Paid</label>
+                    </div>
+                    <label for="year" class="form-label">SESSION</label>
+                    <input class="form-control" type="text" id="year" required name="year" placeholder="Year">
+                    <label for="term" class="form-label">TERM</label>
+                    <select id="term" class="form-control" required name="term">
+                        <option value="First Term">First Term</option>
+                        <option value="Second Term">Second Term</option>
+                        <option value="Third Term">Third Term</option>
+                    </select>
+                </div>
+               
+                <hr>
+                <h4 style="text-align: center;">Add subjects</h4>
+                <div>
+                    <input checked type="checkbox" class="form-check-input" name="subject[name]" value="MATHEMATICS" id="mathematics">
+                    <label for="mathematics" class="form-label">MATHEMATICS</label>
+                </div>
+                <div>
+                    <input checked type="checkbox" class="form-check-input" name="subject[name]" value="ENGLISH" id="english">
+                    <label for="english" class="form-label">ENGLISH</label>
+                </div>
+                <div>
+                    <input type="checkbox" class="form-check-input" name="subject[name]" value="PHYSICS" id="physics">
+                    <label for="physics" class="form-label">PHYSICS</label>
+                </div>
+                <div>
+                    <input type="checkbox" class="form-check-input" name="subject[name]" value="CHEMISTRY" id="chemistry">
+                    <label for="chemistry" class="form-label">CHEMISTRY</label>
+                </div>
+                <div>
+                    <input type="checkbox" class="form-check-input" name="subject[name]" value="BIOLOGY" id="biology">
+                    <label for="biology" class="form-label">BIOLOGY</label>
+                </div>
+                <div>
+                    <input type="checkbox" class="form-check-input" name="subject[name]" value="AGRICULTURAL SCIENCE" id="agric">
+                    <label for="agric" class="form-label">AGRICULTURAL SCIENCE</label>
+                </div>
+                <div>
+                    <input type="checkbox" class="form-check-input" name="subject[name]" value="CIVIC EDUCATION" id="civic">
+                    <label for="civic" class="form-label">CIVIC EDUCATION</label>
+                </div>
+                <div>
+                    <input type="checkbox" class="form-check-input" name="subject[name]" value="DATA PROCESSING" id="data p">
+                    <label for="data p" class="form-label">DATA PROCESSING</label>
+                </div>
+                <div>
+                    <input type="checkbox" class="form-check-input" name="subject[name]" value="ECONOMICS" id="econs">
+                    <label for="econs" class="form-label">ECONOMICS</label>
+                </div>
+                <div>
+                    <input type="checkbox" class="form-check-input" name="subject[name]" value="FURTHER MATHEMATICS" id="fmaths">
+                    <label for="fmaths" class="form-label">FURTHER MATHEMATICS</label>
+                </div>
+                <div>
+                    <input type="checkbox" class="form-check-input" name="subject[name]" value="GEOGRAPHY" id="geography">
+                    <label for="geography" class="form-label">GEOGRAPHY</label>
+                </div>
+            
+                <button class="btn btn-dark btn-block mb-2" style="width: 100%;">submit</button>
+            </form>
+        </div>
+
+
+<%- include ("partials/footer") %>

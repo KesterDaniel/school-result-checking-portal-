@@ -1,0 +1,105 @@
+<%- include ("partials/header") %>
+<div class="container">
+    <h2 style="text-align: center; font-size: 3em;">Harmony International Schools</h2>
+    <h3 style="text-align: center;">63, Manya Road, U/Romi, Box 2317, Kaduna, Nigeria</h3>
+    <p style="text-align: center;">Phone: 080993239, Email: Harmanis@gmail.com</p>
+    <hr>
+    <h3 style="text-align: center;">Student's Terminal Result</h3>
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <p><b>Name of student:</b> <%= student.surName %> <%= student.firstName %> <%= student.middleName %>  </p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <p><b>Class: </b><%= student.class %></p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <p><b>Term: </b><%= student.Term %></p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <p><b>No in class: </b><%= classmate.length %></p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <p><b>Times school open: </b>109</p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <p><b>Times Absent: </b><%= student.TimesAbsent %></p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <p><b>Total Marks: </b><%= weTotal %></p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <p><b>Average: </b><%= averageTots %></p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-6">
+            <p><b>Class Position: </b><%= student.PositionInClass %></p>
+        </div>
+    </div>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Subject</th>
+                <th scope="col">First CA</th>
+                <th scope="col">Second CA</th>
+                <th scope="col">Exam</th>
+                <th scope="col">Total</th>
+                <th scope="col">Grade</th>
+                <th scope="col">Remark</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% Termsubjects.forEach((subject)=>{ %>
+                <tr>
+                    <td><%= subject.name %></td>
+                    <td><%= subject.FirstCA %></td>
+                    <td><%= subject.SecondCA %></td>
+                    <td><%= subject.Exam %></td>
+                    <td><%= subject.Total %></td>
+                    <% if(subject.Total >= 75){ %>
+                        <td>A1</td>
+                    <% }else if(subject.Total >= 70){ %>
+                        <td>B2</td>
+                    <% }else if(subject.Total >= 65){ %>
+                        <td>B3</td>
+                    <% }else if(subject.Total >= 60){ %>
+                        <td>C4</td>
+                    <% } else if(subject.Total >= 55){ %>
+                        <td>C5</td>
+                    <% } else if(subject.Total >= 50){ %>
+                        <td>C6</td>
+                    <% } else if(subject.Total >= 45){ %>
+                        <td>D7</td>
+                    <% }else if(subject.Total >= 40){ %>
+                        <td>E8</td>
+                    <% }else{ %>
+                        <td>F9</td>
+                    <% } %>
+                    <% if(subject.Total >= 75){ %>
+                        <td>DISTINCTION</td>
+                    <% }else if(subject.Total >= 70){ %>
+                        <td>VERY GOOD</td>
+                    <% }else if(subject.Total >= 65){ %>
+                        <td>GOOD</td>
+                    <% }else if(subject.Total >= 60){ %>
+                        <td>CREDIT</td>
+                    <% } else if(subject.Total >= 55){ %>
+                        <td>CREDIT</td>
+                    <% } else if(subject.Total >= 50){ %>
+                        <td>CREDIT</td>
+                    <% } else if(subject.Total >= 45){ %>
+                        <td>PASS</td>
+                    <% }else if(subject.Total >= 40){ %>
+                        <td>FAIR</td>
+                    <% }else{ %>
+                        <td>FAIL</td>
+                    <% } %>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+<%- include ("partials/footer") %>

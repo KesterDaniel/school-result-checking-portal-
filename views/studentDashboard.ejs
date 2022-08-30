@@ -1,0 +1,15 @@
+<%- include ("partials/header") %>
+<h1><%= student.name %></h1>
+<h2><%= student.class %></h2>
+<br>
+<h2><%= student.sex %></h2>
+<% if(student.paid == true){ %>
+    <h2><em>School fees paid</em></h2>
+<% }else{ %>
+    <h2><em>School fees not paid</em></h2>
+<% } %>
+<a class="btn btn-dark btn-sm" href="/students/<%= student._id %>/Records">View Records</a>
+
+
+
+<%- include ("partials/footer") %>
